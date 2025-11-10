@@ -1,0 +1,257 @@
+:root {
+  --primary: #1078FF; 
+  --secondary: #001935;
+  --tertiary: #FD6301;
+  --blanco: #F3EFE8;
+  --primary-light: #bad6fb;
+  --gray: #6E6E6E;
+  --blancoCrema: #FAF6F0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--primary-light);
+  height: 100vh; /* Asegura que el body ocupe toda la altura */
+  display: flex; /* Usamos flexbox para centrar el contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-nav {
+  width: 100%;
+  background-color: var(--blancoCrema);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu li a {
+  font-size: 1rem;
+  color: var(--secondary);
+  padding: 8px 12px;
+  transition: background-color 0.2s;
+}
+
+.nav-menu li a:hover {
+  background-color: var(--primary-light);
+  border-radius: 6px;
+}
+
+.btn-nav {
+  color: var(--tertiary);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.btn-nav:hover {
+  background-color: var(--tertiary);
+}
+
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.register-box {
+  background-color: var(--blancoCrema);
+  width: 100%; /* Para hacer que ocupe el 100% del contenedor */
+  max-width: 400px; /* Limitar el ancho máximo */
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 5px -3px 10px rgba(0,0,0,0.1);
+}
+
+.title {
+  text-align: center;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.title h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.title h1 {
+  font-size: 32px;
+  margin: 0;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Aumentamos el espacio entre los campos */
+}
+
+.custom-textfield {
+  position: relative;
+  margin-top: 10px; /* Reducido */
+}
+
+.custom-textfield input {
+  width: 93%; /* Asegura que el input ocupe el 100% del ancho disponible */
+  padding: 12px 14px; /* Ajustado el padding */
+  border: none;
+  border-radius: 12px;
+  background-color: var(--primary-light);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--secondary);
+  outline: none;
+  transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.custom-textfield input::placeholder {
+  color: rgba(44, 62, 80, 0.5);
+  font-weight: 400;
+}
+
+.textfield-label {
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background-color: var(--blancoCrema);
+  padding: 0 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--secondary);
+  border-radius: 4px;
+}
+
+.btn-registrar {
+  background-color: var(--secondary);
+  color: var(--blanco);
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px; /* Separación del formulario */
+  width: 80%; /* Asegura que el botón ocupe un 80% del ancho del contenedor */
+  display: block; /* Hacer que el botón sea un bloque */
+  margin-left: auto; /* Centrar horizontalmente */
+  margin-right: auto; /* Centrar horizontalmente */
+}
+
+.btn-registrar:hover {
+  background-color: var(--tertiary);
+}
+
+.forget-link {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--tertiary);
+  font-weight: 600;
+}
+
+.forget-link a {
+  color: var(--tertiary);
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.forget-link a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries para Responsividad */
+
+/* Pantallas pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+  .title h1 {
+    font-size: 28px; /* Reducir tamaño del título en pantallas pequeñas */
+  }
+
+  .title h2 {
+    font-size: 20px; /* Reducir tamaño del subtítulo */
+  }
+
+  .register-box {
+    padding: 20px; /* Reducir el padding en pantallas pequeñas */
+    width: 90%; /* Ajustar el ancho al 90% */
+  }
+
+  .custom-textfield input {
+    width: 92%; /* Hacer que los inputs ocupen todo el ancho */
+    padding: 10px 12px; /* Reducir padding para ahorrar espacio */
+    font-size: 14px; /* Reducir el tamaño de la fuente */
+  }
+
+  .btn-registrar {
+    width: 90%; /* Asegurar que el botón no sea tan grande */
+    padding: 10px; /* Reducir padding del botón */
+    font-size: 16px; /* Reducir tamaño de la fuente en el botón */
+  }
+}
+
+/* Pantallas medianas (tabletas) */
+@media screen and (max-width: 768px) {
+  .title h1 {
+    font-size: 30px; /* Ajuste para tabletas */
+  }
+
+  .register-box {
+    padding: 25px; /* Ajuste de padding para tabletas */
+    width: 85%; /* Ajustar ancho a 85% */
+  }
+
+  .custom-textfield input {
+    width: 92%; /* Los inputs deben ocupar el 100% */
+    padding: 12px 14px;
+    font-size: 15px; /* Ajuste de fuente */
+  }
+
+  .btn-registrar {
+    width: 85%; /* Asegurar que el botón no ocupe todo el ancho */
+    padding: 12px;
+    font-size: 17px;
+  }
+}
