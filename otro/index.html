@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxi Cheap - Económico y seguro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,200..1000,200..1000;1,200..1000,200..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- HEADER / NAVEGACIÓN -->
+  <header class="header sticky">
+    <div class="container header-content">
+      <!-- Logo -->
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <span>Taxi Cheap</span>
+      </div>
+
+      <!-- Menú Desktop -->
+      <nav class="nav-desktop">
+        <a href="#benefits">Beneficios</a>
+        <a href="#how-it-works">Cómo Funciona</a>
+        <a href="#testimonials">Testimonios</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <!-- Botones Desktop -->
+      <div class="header-buttons">
+        <button class="btn btn-outline">Iniciar Sesión</button>
+        <button class="btn btn-secondary">Descargar App</button>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Menú Móvil -->
+    <nav class="nav-mobile" id="navMobile">
+      <a href="#benefits">Beneficios</a>
+      <a href="#how-it-works">Cómo Funciona</a>
+      <a href="#testimonials">Testimonios</a>
+      <a href="#faq">FAQ</a>
+      <button class="btn btn-outline" style="width: 100%;">Iniciar Sesión</button>
+      <button class="btn btn-secondary" style="width: 100%;">Descargar App</button>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Contenido Izquierdo -->
+        <div class="hero-content">
+          <h1>Tu viaje económico, seguro y confiable</h1>
+          <p class="hero-subtitle">Conecta con conductores verificados y llega a tu destino sin complicaciones. La forma moderna de moverte por la ciudad.</p>
+
+          <!-- Botones CTA -->
+          <div class="hero-buttons">
+            <button class="btn btn-secondary btn-lg">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Descargar la App
+            </button>
+            <button class="btn btn-outline btn-lg">
+              Conviértete en Conductor
+            </button>
+          </div>
+
+          <!-- App Store Badges -->
+          <div class="app-badges">
+            <div class="badge">
+              <p class="badge-label">Pronto en</p>
+              <p class="badge-text">App Store</p>
+            </div>
+            <div class="badge">
+              <p class="badge-label">Disponible en</p>
+              <p class="badge-text">Google Play</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagen Derecha -->
+        <div class="hero-image">
+          <img src="/assets/modern-urban-cars-city-transportation.jpg" alt="Taxi Cheap app showcase with modern cars">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS SECTION -->
+  <section id="benefits" class="section benefits-section">
+    <div class="container">
+      <h2>¿Por qué elegir Taxi Cheap?</h2>
+      <p class="section-subtitle">Beneficios diseñados para tu comodidad y seguridad</p>
+
+      <div class="benefits-grid">
+        <!-- Benefit 1 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Seguridad y Confianza</h3>
+          <p>Todos nuestros conductores son verificados y tienen antecedentes limpios. Viaja con tranquilidad.</p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Tarifas Transparentes</h3>
+          <p>Sin sorpresas. Conoce el precio antes de reservar tu viaje. Siempre justo y competitivo.</p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          </div>
+          <h3>Conductores Calificados</h3>
+          <p>Solo los mejores. Conductores evaluados con excelentes calificaciones de pasajeros.</p>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Viajes Cómodos</h3>
+          <p>Autos limpios y bien mantenidos. Disfruta cada viaje en confort y estilo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section id="how-it-works" class="section how-it-works-section">
+    <div class="container">
+      <h2>Cómo funciona Taxi Cheap</h2>
+      <p class="section-subtitle">Tres pasos simples para tu próximo viaje</p>
+
+      <div class="steps-grid">
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3>Descarga la App</h3>
+          <p>Descarga Taxi Cheap desde App Store o Google Play. Regístrate en menos de 2 minutos.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3>Pide tu Viaje</h3>
+          <p>Selecciona tu destino, elige el tipo de auto y confirma. Tu conductor estará en camino.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3>Llega Fácilmente</h3>
+          <p>Sube al auto y disfruta el viaje. Paga de forma segura al llegar a tu destino.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="section testimonials-section">
+    <div class="container">
+      <h2>Lo que dicen nuestros usuarios</h2>
+      <p class="section-subtitle">Miles de pasajeros y conductores confían en Taxi Cheap</p>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="quote">"Taxi Cheap cambió la forma en que me desplazo por la ciudad. Segura, rápida y siempre a tiempo."</p>
+          <div class="testimonial-author">
+            <img src="/assets/professional-woman-avatar.png" alt="María González">
+            <div>
+              <p class="author-name">María González</p>
+              <p class="author-role">Pasajera Regular</p>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="quote">"Gano dinero flexible con Taxi Cheap. La plataforma es justa y los pasajeros muy respetuosos."</p>
+          <div class="testimonial-author">
+            <img src="/assets/professional-woman-driving-avatar.jpg" alt="Ana Rodríguez">
+            <div>
+              <p class="author-name">Ana Rodríguez</p>
+              <p class="author-role">Conductor</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <div class="stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="quote">"La mejor app de transporte que he usado. Confiable, transparente y muy fácil de usar."</p>
+          <div class="testimonial-author">
+            <img src="/assets/professional-man-avatar.png" alt="Juan Pérez">
+            <div>
+              <p class="author-name">Juan Pérez</p>
+              <p class="author-role">Usuario Frecuente</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="testimonial-card">
+          <div class="stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+        <p class="quote">"Taxi Cheap me lleva siempre seguro: conductores amables, coches limpios y precios justos."</p>
+          <div class="testimonial-author">
+            <img src="/assets/professional-man-avatar.png" alt="María González">
+            <div>
+              <p class="author-name">Jesús Martinez</p>
+              <p class="author-role">Pasajero Regular</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRIVER SECTION -->
+  <section class="section driver-section">
+    <div class="container">
+      <div class="driver-grid">
+        <!-- Driver Image -->
+        <div class="driver-image">
+          <img src="/assets/car-dashboard-driver-modern-vehicle.jpg" alt="Taxi Cheap driver experience">
+        </div>
+
+        <!-- Driver Content -->
+        <div class="driver-content">
+          <h2>Conviértete en Conductor</h2>
+          <p>Gana dinero flexible conduciendo con Taxi Cheap. Sé tu propio jefe y controla tus horarios.</p>
+
+          <!-- Benefits List -->
+          <div class="driver-benefits">
+            <div class="benefit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <p>Ganancias competitivas hasta 40% más que la competencia</p>
+            </div>
+            <div class="benefit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <p>Horarios 100% flexibles - trabaja cuando quieras</p>
+            </div>
+            <div class="benefit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <p>Beneficios y protección para todos nuestros conductores</p>
+            </div>
+            <div class="benefit-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <p>Plataforma transparente sin sorpresas</p>
+            </div>
+          </div>
+
+          <!-- CTA Buttons 
+          <div class="driver-buttons">
+            <button class="btn btn-secondary btn-lg">Regístrate y Gana Hoy</button>
+            <button class="btn btn-outline btn-lg">Más Información</button>
+          </div>
+
+          <div class="driver-stats">
+            <div class="stat">
+              <p class="stat-value">15,000+</p>
+              <p class="stat-label">Conductores Activos</p>
+            </div>
+            <div class="stat">
+              <p class="stat-value">$4,500</p>
+              <p class="stat-label">Ganancia Promedio/Mes</p>
+            </div>
+          </div>
+          -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="section faq-section">
+    <div class="container faq-container">
+      <h2>Preguntas Frecuentes</h2>
+      <p class="section-subtitle">Resolvemos tus dudas</p>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Es seguro usar Taxi Cheap?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, 100% seguro. Todos nuestros conductores son verificados con antecedentes limpios. La app tiene GPS en tiempo real, botón de emergencia y seguimiento para contactos de confianza.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Cómo funciona el pago?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Puedes pagar con Yape o efectivo. El precio se muestra antes de confirmar tu viaje. Recibas un recibo digital automáticamente.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Qué documentos necesito para ser conductor?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Necesitas: Licencia de conducir válida, identificación oficial, auto no mayor a 10 años, verificación de antecedentes penales, y comprobante de domicilio. El proceso toma 2-3 días.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Puedo viajar con mascotas?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, puedes viajar con mascotas pequeñas. Solo debes informar al conductor al momento de solicitar el viaje. Las mascotas grandes pueden requieren auto especial.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Qué hago si olvido algo en el auto?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Contacta al conductor a través de la app dentro de 24 horas. Si no está disponible, nuestro equipo de soporte te ayudará a recuperar tu artículo.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>¿Hay promociones o descuentos?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, ofrecemos códigos de descuento para nuestros usuarios.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="section final-cta">
+    <div class="container">
+      <h2>Tu próximo viaje comienza aquí</h2>
+      <p>Únete a miles de pasajeros y conductores que confían en Taxi Cheap para sus viajes diarios.</p>
+
+      <div class="final-cta-buttons">
+        <button class="btn btn-secondary btn-lg">
+          Descargar Ahora
+        </button>
+        <button class="btn btn-cta-outline btn-lg">
+          Conviértete en Conductor
+        </button>
+      </div>
+
+      <div class="final-cta-links">
+        <a href="#">App Store</a>
+        <a href="#">Google Play</a>
+        <a href="#">Web App</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span>Taxi Cheap</span>
+          </div>
+          <p>La forma moderna, segura y confiable de moverte por la ciudad.</p>
+        </div>
+
+        <!-- Product Links -->
+        <div class="footer-section">
+          <h3>Producto</h3>
+          <ul>
+            <li><a href="#">Descargar App</a></li>
+            <li><a href="#">Cómo Funciona</a></li>
+            <li><a href="#">Ser Conductor</a></li>
+            <li><a href="#">Precios</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Links -->
+        <div class="footer-section">
+          <h3>Empresa</h3>
+          <ul>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Empleos</a></li>
+            <li><a href="#">Prensa</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-section">
+          <h3>Contacto</h3>
+          <ul>
+            <li class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <a href="mailto:contacto@taxicheap.org">contacto@taxicheap.org</a>
+            </li>
+            <li class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:+1234567890">+1 (234) 567-890</a>
+            </li>
+            <li class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Calle Principal 123<br>Ciudad Central, CC 12345</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Social Media & Bottom -->
+      <div class="footer-bottom">
+        <div class="social-links">
+          <p>Síguenos en redes sociales</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-copyright">
+        <p>&copy; 2025 Taxi Cheap. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos de Uso</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
