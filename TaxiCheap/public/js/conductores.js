@@ -20,11 +20,18 @@ let todosLosConductores = [];
 
 // 2. OBTENER LISTA DE CONDUCTORES
 // 2. OBTENER LISTA DE CONDUCTORES (Modificado para traer vehículos)
+// 2. OBTENER LISTA DE CONDUCTORES (Modificado para excluir al predeterminado)
 async function obtenerConductores() {
     const conductoresRef = collection(db, "conductores");
     const snapshot = await getDocs(conductoresRef);
 
-    const conductoresPromesas = snapshot.docs.map(async (docSnap) => {
+    // ID del conductor que quieres ocultar (puedes copiarlo desde Firebase Console)
+    const ID_PREDETERMINADO = "conductoresId"; 
+
+    // Filtramos los documentos antes de procesar las promesas de vehículos
+    const docsFiltrados = snapshot.docs.filter(docSnap => docSnap.id !== ID_PREDETERMINADO);
+
+    const conductoresPromesas = docsFiltrados.map(async (docSnap) => {
         const datosConductor = docSnap.data();
         let datosVehiculo = null;
 

@@ -26,17 +26,51 @@ const modalBody = document.querySelector("#adminModal .modal-body");
 const modalTitle = document.getElementById("modalTitle");
 
 // --- LISTENERS ---
+// --- LISTENERS ---
 onSnapshot(adminsRef, (snapshot) => {
-    allAdmins = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+    // Lista de IDs que no quieres mostrar
+    const idsOcultos = ["administradorId", "ztEn0KEkmfdMtKG1lKjzCZSFNFJ2"]; 
+
+    allAdmins = snapshot.docs
+        .filter(doc => !idsOcultos.includes(doc.id)) 
+        .map(doc => ({ id: doc.id, ...doc.data() }));
+
+    // ACTUALIZAR TARJETA DE TOTAL
+    const totalCard = document.getElementById("statTotalAdmins");
+    if (totalCard) {
+        totalCard.innerText = allAdmins.length;
+    }
+
     renderAdmins();
 });
 
-function renderAdmins() {
+// --- BUSCADOR DE ADMINISTRADORES ---
+document.getElementById("searchAdmins").addEventListener("input", (e) => {
+    const term = e.target.value.toLowerCase();
+    const filtrados = allAdmins.filter(admin => 
+        admin.usuario.toLowerCase().includes(term) || 
+        admin.email.toLowerCase().includes(term) ||
+        (admin.nombre_completo && admin.nombre_completo.toLowerCase().includes(term))
+    );
+    
+    // Renderizamos la tabla con los resultados de búsqueda
+    const tbody = document.querySelector("#adminsTable tbody");
+    tbody.innerHTML = "";
+    
+    // Aquí podrías mover la lógica de creación de filas a una función aparte
+    // pero para este ejemplo, renderAdmins() usa allAdmins. 
+    // Lo ideal es modificar renderAdmins para que acepte una lista como parámetro:
+    renderAdmins(filtrados); 
+});
+
+// Modifica ligeramente tu función renderAdmins para aceptar la lista:
+function renderAdmins(lista = allAdmins) {
     const tbody = document.querySelector("#adminsTable tbody");
     if (!tbody) return;
     tbody.innerHTML = "";
 
-    allAdmins.forEach(admin => {
+    lista.forEach(admin => {
+        // ... (tu código actual de tr.innerHTML) ...
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td>
@@ -167,6 +201,10 @@ window.openAdminProfile = (id) => {
 
 // --- ELIMINAR ---
 window.deleteAdmin = async (id) => {
+    if (id === "ztEn0KEkmfdMtKG1lKjzCZSFNFJ2" || id === "administradorId") { // Reemplaza con el ID real
+        alert("Este administrador es del sistema y no puede ser eliminado.");
+        return;
+    }
     if(confirm("¿Seguro que deseas eliminar este administrador?")) {
         await deleteDoc(doc(db, "administradores", id));
     }
@@ -208,8 +246,11 @@ document.getElementById("btnAddAdmin").onclick = () => {
     document.getElementById("adminForm").onsubmit = handleFormSubmit;
     abrirModal();
 };
-
 window.deleteAdmin = async (id) => {
+    if (id === "ztEn0KEkmfdMtKG1lKjzCZSFNFJ2" || id === "administradorId") { // Reemplaza con el ID real
+        alert("Este administrador es del sistema y no puede ser eliminado.");
+        return;
+    }
     if(confirm("¿Seguro que deseas eliminar este administrador?")) {
         await deleteDoc(doc(db, "administradores", id));
     }

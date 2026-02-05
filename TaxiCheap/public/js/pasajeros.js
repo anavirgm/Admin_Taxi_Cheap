@@ -23,12 +23,17 @@ async function obtenerPasajeros() {
     const pasajerosRef = collection(db, "pasajeros");
     const snapshot = await getDocs(pasajerosRef);
     
+    const ID_PREDETERMINADO = "pasajeroId"; // Cambia esto por el ID real
+
     todosLosPasajeros = [];
     snapshot.forEach(doc => {
-        todosLosPasajeros.push({ id: doc.id, ...doc.data() });
+        // Solo agregamos si NO es el ID predeterminado
+        if (doc.id !== ID_PREDETERMINADO) {
+            todosLosPasajeros.push({ id: doc.id, ...doc.data() });
+        }
     });
 
-    aplicarFiltros(); // Llamamos a aplicar filtros para la carga inicial
+    aplicarFiltros(); 
 }
 
 // 3. FUNCIÓN PARA RENDERIZAR (ahora tabla)
