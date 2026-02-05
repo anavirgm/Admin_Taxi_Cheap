@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Taxi Cheap</title>
+    <link rel="stylesheet" href="/public/styles/dashboard.css">
+    <link rel="stylesheet" href="/public/styles/conductores.css">
+</head>
+
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="sidebar-toggle-desktop" id="sidebarToggleDesktop">☰</button>
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>Taxi Cheap</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-bar" placeholder="Buscar conductor...">
+        </div>
+    </div>
+
+    <!-- Overlay del sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+         <div id="sidebarContainer"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+    <div class="top-bar">
+        <h1>Gestión de Administradores</h1>
+        <button id="btnAddAdmin" style="background: #f58e18; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;">
+            + Nuevo Administrador
+        </button>
+    </div>
+
+    <div class="drivers-section">
+        <div class="drivers-header">
+            <h2>Lista de Personal Administrativo</h2>
+            <div class="filters-container">
+                <input id="searchAdmins" type="text" class="search-drivers" placeholder="Buscar por usuario o email...">
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Total Admins</div>
+                        <div class="card-conduc" id="statTotalAdmins">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="drivers-table-wrap">
+            <table class="drivers-table" id="adminsTable">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="adminModal">
+    <div class="modal-content">
+        <button class="modal-close" id="closeAdminModal">✕</button>
+        <div class="modal-body">
+            <h2 id="modalTitle">Nuevo Administrador</h2>
+            <form id="adminForm" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+    <input type="hidden" id="adminId">
+    
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label>Nombre Completo</label>
+            <input type="text" id="adminNombre" required placeholder="Ej. Ana Virgini">
+        </div>
+        <div>
+            <label>Usuario</label>
+            <input type="text" id="adminUser" required placeholder="desarrollador">
+        </div>
+    </div>
+
+    <div>
+        <label>Correo Electrónico</label>
+        <input type="email" id="adminEmail" required>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label>Rol</label>
+            <select id="adminRol">
+                <option value="admin">Administrador</option>
+                <option value="moderador">Moderador</option>
+                <option value="desarrollador">Desarrollador</option>
+            </select>
+        </div>
+        <div>
+    <label>Foto de Perfil</label>
+    <input type="file" id="adminFotoFile" accept="image/*" style="width:100%; padding:8px; border:1px solid #ddd; border-radius:5px;">
+    <input type="hidden" id="adminFotoUrl">
+</div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label>Teléfono</label>
+            <input type="text" id="adminPhone" placeholder="+51 999...">
+        </div>
+        <div>
+            <label>Estatus</label>
+            <select id="adminStatus">
+                <option value="Activo">Activo</option>
+                <option value="En pausa">En pausa</option>
+                <option value="Fuera de línea">Fuera de línea</option>
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn-verify" style="width:100%; margin-top:10px;">Guardar Administrador</button>
+</form>
+        </div>
+    </div>
+</div>
+<div class="modal-overlay" id="adminOverlay"></div>
+
+<script type="module" src="/public/js/administradores.js"></script>
+    <script type="module">
+        import { loadSidebar } from "/public/js/sidebar.js";
+        // Asegúrate de que el ID coincida con el que espera tu sidebar.js
+        loadSidebar("admins"); 
+    </script>
+</body>
+</html>

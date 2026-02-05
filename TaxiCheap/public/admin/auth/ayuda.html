@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda y Soporte - Taxi Cheap</title>
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <link rel="stylesheet" href="/styles/terminos.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="sidebar-toggle-desktop" id="sidebarToggleDesktop">☰</button>
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>Taxi Cheap</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-bar" placeholder="Type here...">
+            <button>🔐 Sign in</button>
+            <button>⚙️</button>
+            <button>🔔</button>
+        </div>
+    </div>
+
+    <!-- Overlay del sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <button class="close-sidebar" id="closeSidebar">✕</button>
+            <div class="sidebar-header"></div>
+
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" data-menu="dashboard">
+                    <span class="menu-icon">📈</span>
+                    Administradores
+                </a></li>
+                <li><a href="conductores.html" data-menu="conductores">
+                    <span class="menu-icon">👨‍✈️</span>
+                    Conductores
+                </a></li>
+                <li><a href="pasajeros.html" data-menu="passengers">
+                    <span class="menu-icon">👥</span>
+                    Pasajeros
+                </a></li>
+                <li><a href="cupones.html" data-menu="coupons">
+                    <span class="menu-icon">🎟️</span>
+                    Cupones
+                </a></li>
+                <li><a href="#" data-menu="map">
+                    <span class="menu-icon">🗺️</span>
+                    Mapa
+                </a></li>
+            </ul>
+
+            <div class="sidebar-section-title">Configuración</div>
+            <ul class="sidebar-menu">
+                <li><a href="tarifas.html" data-menu="rates">
+                    <span class="menu-icon">💰</span>
+                    Tarifas
+                </a></li>
+                <li><a href="terminos.html" data-menu="terms">
+                    <span class="menu-icon">📋</span>
+                    Términos y Condiciones
+                </a></li>
+                <li><a href="politicas.html" data-menu="policies">
+                    <span class="menu-icon">⚖️</span>
+                    Políticas
+                </a></li>
+                <li><a href="ayuda.html" class="active" data-menu="help">
+                    <span class="menu-icon">❓</span>
+                    Ayuda y Soporte
+                </a></li>
+                <li><a href="faq.html" data-menu="faq">
+                    <span class="menu-icon">💬</span>
+                    Preguntas Frecuentes
+                </a></li>
+                <li><a href="#" data-menu="account">
+                    <span class="menu-icon">👤</span>
+                    Cuenta
+                </a></li>
+                <li><a href="#" data-menu="logout">
+                    <span class="menu-icon">🚪</span>
+                    Cerrar sesión
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Ayuda y Soporte</h1>
+
+            </div>
+
+            <!-- Help Section -->
+            <div class="terms-section">
+                <div class="qa-controls">
+                    <button class="btn-add-qa" id="btnAddQA">+ Agregar Artículo</button>
+                </div>
+
+                <div class="qa-container" id="qaContainer">
+                    <!-- Las tarjetas Q&A se generarán aquí dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para crear/editar artículos -->
+    <div class="modal" id="qaModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeQAModal">✕</button>
+            <h2 id="qaModalTitle">Nuevo Artículo</h2>
+            
+            <form id="qaForm">
+                <div class="form-group">
+                    <label for="qaQuestion">Tema:</label>
+                    <input type="text" id="qaQuestion" required placeholder="Escribe el tema...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="qaAnswer">Contenido:</label>
+                    <textarea id="qaAnswer" required placeholder="Escribe el contenido..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-save-form">Guardar</button>
+                    <button type="button" class="btn-cancel-form" id="cancelQAForm">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="qaModalOverlay"></div>
+
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/ayuda.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Regla para la colección 'administradores'
+    match /administradores/{administradorId} {
+      // Permitir la lectura de documentos de la colección 'administradores' solo si el usuario está autenticado y tiene el rol 'admin'
+      allow read, write: if request.auth != null && request.auth.uid == administradorId;
+    }
+
+    // Regla para la colección 'pasajeros'
+    match /pasajeros/{pasajeroId} {
+      allow read, write: if true; 
+    }
+
+    // Regla para la colección 'conductores'
+    match /conductores/{conductorId} {
+      allow read, write: if true; 
+    }
+
+    // Reglas para la colección 'tarifas'
+    match /tarifas/{document=**} {
+      allow read, write: if true;  // Permite la lectura de la colección tarifas
+    }
+    
+    // Reglas para la colección 'zonasInseguras'
+    match /zonasInseguras/{zonasInsegurasId} {
+      allow read, write: if true;  // Permite la lectura de la colección zonasInseguras
+    }
+
+    // Reglas para la colección 'vehiculos'
+    match /vehiculos/{vehiculoId} {
+      allow read, write: if true;  // Permite lectura y escritura en vehiculos
+    }
+
+    // Reglas para la colección 'cupones'
+    match /cupones/{cuponesId} {
+      allow read, write: if true;  // Permite lectura y escritura en cupones
+    }
+
+    // Reglas para la colección 'pasajero_cupon'
+    match /pasajero_cupon/{pasajeroCuponId} {
+      allow read, write: if true;
+    }
+
+    // Reglas para la colección 'viajes'
+    match /viajes/{viajesId} {
+      allow read, write: if request.auth != null;  // Permite lectura y escritura en viajes
+      
+      match /ofertas/{ofertasId} {
+        allow read, write: if request.auth != null;
+      }
+    }
+
+    // Reglas para la colección 'notificaciones_conductores'
+    match /notificaciones_conductores/{notificacionId} {
+      // Permitir la creación si el usuario está autenticado y el viaje existe
+      allow create: if request.auth != null &&
+        exists(/databases/$(database)/documents/viajes/$(resource.data.viajeId)) &&
+        (
+          get(/databases/$(database)/documents/viajes/$(resource.data.viajeId)).data.pasajeroId.id == request.auth.uid || 
+          get(/databases/$(database)/documents/viajes/$(resource.data.viajeId)).data.conductorId.id == request.auth.uid
+        );
+
+      // Permitir leer y actualizar si el viaje corresponde al usuario
+      allow read, update: if request.auth != null &&
+        (
+          get(/databases/$(database)/documents/viajes/$(resource.data.viajeId)).data.pasajeroId.id == request.auth.uid || 
+          get(/databases/$(database)/documents/viajes/$(resource.data.viajeId)).data.conductorId.id == request.auth.uid
+        );
+    }
+
+  }
+}

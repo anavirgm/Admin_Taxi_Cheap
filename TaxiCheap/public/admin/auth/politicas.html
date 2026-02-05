@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas - Taxi Cheap</title>
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <link rel="stylesheet" href="/styles/terminos.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="sidebar-toggle-desktop" id="sidebarToggleDesktop">☰</button>
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>Taxi Cheap</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-bar" placeholder="Type here...">
+            <button>🔐 Sign in</button>
+            <button>⚙️</button>
+            <button>🔔</button>
+        </div>
+    </div>
+
+    <!-- Overlay del sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <button class="close-sidebar" id="closeSidebar">✕</button>
+            <div class="sidebar-header"></div>
+
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" data-menu="dashboard">
+                    <span class="menu-icon">📈</span>
+                    Administradores
+                </a></li>
+                <li><a href="conductores.html" data-menu="conductores">
+                    <span class="menu-icon">👨‍✈️</span>
+                    Conductores
+                </a></li>
+                <li><a href="pasajeros.html" data-menu="passengers">
+                    <span class="menu-icon">👥</span>
+                    Pasajeros
+                </a></li>
+                <li><a href="cupones.html" data-menu="coupons">
+                    <span class="menu-icon">🎟️</span>
+                    Cupones
+                </a></li>
+                <li><a href="#" data-menu="map">
+                    <span class="menu-icon">🗺️</span>
+                    Mapa
+                </a></li>
+            </ul>
+
+            <div class="sidebar-section-title">Configuración</div>
+            <ul class="sidebar-menu">
+                <li><a href="tarifas.html" data-menu="rates">
+                    <span class="menu-icon">💰</span>
+                    Tarifas
+                </a></li>
+                <li><a href="terminos.html" data-menu="terms">
+                    <span class="menu-icon">📋</span>
+                    Términos y Condiciones
+                </a></li>
+                <li><a href="politicas.html" data-menu="policies">
+                    <span class="menu-icon">⚖️</span>
+                    Políticas
+                </a></li>
+                <li><a href="ayuda.html" class="active" data-menu="help">
+                    <span class="menu-icon">❓</span>
+                    Ayuda y Soporte
+                </a></li>
+                <li><a href="faq.html" data-menu="faq">
+                    <span class="menu-icon">💬</span>
+                    Preguntas Frecuentes
+                </a></li>
+                <li><a href="#" data-menu="account">
+                    <span class="menu-icon">👤</span>
+                    Cuenta
+                </a></li>
+                <li><a href="#" data-menu="logout">
+                    <span class="menu-icon">🚪</span>
+                    Cerrar sesión
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Políticas</h1>
+                <div class="top-bar-controls">
+                    <button>🔍</button>
+                    <button>⚙️</button>
+                    <button>🔔</button>
+                </div>
+            </div>
+
+            <!-- Policies Editor Section -->
+            <div class="terms-section">
+                <div class="editor-toolbar">
+                    <button class="toolbar-btn" id="boldBtn" title="Negrita (Ctrl+B)">
+                        <strong>B</strong>
+                    </button>
+                    <button class="toolbar-btn" id="italicBtn" title="Cursiva (Ctrl+I)">
+                        <em>I</em>
+                    </button>
+                    <button class="toolbar-btn" id="underlineBtn" title="Subrayado (Ctrl+U)">
+                        <u>U</u>
+                    </button>
+                    <div class="toolbar-separator"></div>
+                    <button class="toolbar-btn" id="ulBtn" title="Lista sin ordenar">
+                        • Lista
+                    </button>
+                    <button class="toolbar-btn" id="olBtn" title="Lista ordenada">
+                        1. Lista
+                    </button>
+                    <div class="toolbar-separator"></div>
+                    <button class="toolbar-btn" id="h1Btn" title="Encabezado 1">
+                        H1
+                    </button>
+                    <button class="toolbar-btn" id="h2Btn" title="Encabezado 2">
+                        H2
+                    </button>
+                    <button class="toolbar-btn" id="h3Btn" title="Encabezado 3">
+                        H3
+                    </button>
+                    <div class="toolbar-separator"></div>
+                    <button class="toolbar-btn" id="clearBtn" title="Limpiar formato">
+                        🗑️ Limpiar
+                    </button>
+                </div>
+
+                <div class="editor-container">
+                    <div class="editor" id="policiesEditor" contenteditable="true" placeholder="Escribe las políticas aquí..."></div>
+                </div>
+
+                <div class="editor-actions">
+                    <button class="btn-save-terms" id="btnSavePolicies">💾 Guardar Cambios</button>
+                    <button class="btn-preview-terms" id="btnPreviewPolicies">👁️ Vista Previa</button>
+                    <button class="btn-reset-terms" id="btnResetPolicies">↻ Descartar Cambios</button>
+                </div>
+
+                <div class="auto-save-indicator" id="autoSaveIndicator">
+                    Cambios pendientes de guardar
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="previewModal">
+        <div class="modal-content preview-modal-content">
+            <button class="modal-close" id="closePreviewModal">✕</button>
+            
+            <div class="modal-body">
+                <h2>Vista Previa - Políticas</h2>
+                <div class="preview-content" id="previewContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="previewModalOverlay"></div>
+
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/politicas.js"></script>
+</body>
+</html>

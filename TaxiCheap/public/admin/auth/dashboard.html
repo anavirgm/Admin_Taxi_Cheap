@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft UI Dashboard</title>
+    <link rel="stylesheet" href="/public/styles/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <!-- Added button to toggle sidebar on desktop -->
+            <button class="sidebar-toggle-desktop" id="sidebarToggleDesktop">☰</button>
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>Taxi Cheap</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-bar" placeholder="Type here...">
+            <button>🔐 Sign in</button>
+            <button>⚙️</button>
+            <button>🔔</button>
+        </div>
+    </div>
+
+    <!-- Overlay del sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+         <div id="sidebarContainer"></div>
+
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Cards Grid -->
+            <div class="cards-grid">
+                <div class="card">
+    <div class="card-header">
+        <div>
+            <div class="card-title">Ingresos Totales</div>
+            <div class="card-ingresos" style="font-weight: bold; font-size: 28px;">S/ 0.00</div>
+        </div>
+        <div class="card-icon">💵</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div>
+            <div class="card-title">Tasa Cancelación</div>
+            <div class="card-cancelacion" style="font-weight: bold; font-size: 28px;">0%</div>
+        </div>
+        <div class="card-icon">📉</div>
+    </div>
+</div>
+
+<div class="card" style="grid-column: 1 / -1; margin-top: 20px;">
+    <div class="card-title">Volumen de Viajes (Últimas 24h)</div>
+    <canvas id="viajesChart" width="400" height="150"></canvas>
+</div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/public/js/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+  import { loadSidebar } from "/public/js/sidebar.js";
+  loadSidebar("dashboard");
+</script>
+
+</body>
+</html>

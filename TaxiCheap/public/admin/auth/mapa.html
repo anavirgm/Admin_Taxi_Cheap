@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Monitorización de Viajes - Taxi Cheap</title>
+    <link rel="stylesheet" href="/public/styles/dashboard.css">
+    <link rel="stylesheet" href="/public/styles/mapa.css">
+    <!-- Leaflet -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+e2I7niPl8Bv5z7k0nZs1Rz2g/t3j3m9g3fXk4o+8=" crossorigin=""/> -->
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="sidebar-toggle-desktop" id="sidebarToggleDesktop">☰</button>
+            <div class="logo">
+                <div class="logo-icon">🚖</div><span>Taxi Cheap</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-bar" placeholder="Buscar...">
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="sidebarContainer"></div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Monitorización de Viajes</h1>
+                <p class="muted">Rastreo en tiempo real de viajes activos y conductores disponibles</p>
+            </div>
+
+            <div class="map-section">
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Viajes</div>
+                        <div class="stat-value" id="statTotal">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">En Viaje</div>
+                        <div class="stat-value text-blue" id="statEnViaje">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Pendientes</div>
+                        <div class="stat-value text-amber" id="statPendientes">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Completados</div>
+                        <div class="stat-value text-green" id="statCompletados">0</div>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <div class="map-header">
+                        <h3>Mapa en Tiempo Real</h3>
+                        <div class="map-legend">
+                            <span><span class="legend-dot legend-blue"></span> En Viaje</span>
+                            <span><span class="legend-dot legend-green"></span> Disponible</span>
+                            <span><span class="legend-dot legend-gray"></span> Inactivo</span>
+                        </div>
+                    </div>
+                    <div id="map" style="height:360px; border-radius:8px;"></div>
+                </div>
+                
+            </div>
+
+            <div class="trips-card">
+                <div class="trips-header">
+                    <h3>Viajes</h3>
+                    <div class="trips-controls">
+                        <input id="searchTrips" placeholder="Buscar por ID, conductor o pasajero..." />
+                        <select id="filterTripStatus">
+                            <option value="todos">Todos los estados</option>
+                            <option value="en_viaje">En Viaje</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="completado">Completado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="drivers-table" id="tripsTable">
+                        <thead>
+                            <tr>
+                                <th>ID Viaje</th>
+                                <th>Conductor</th>
+                                <th>Pasajero</th>
+                                <th>Ruta</th>
+                                <th>Distancia</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- filas inyectadas -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal simple para detalles de viaje -->
+    <div class="modal" id="tripModal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" id="closeTripModal">✕</button>
+            <div class="modal-body">
+                <h2 id="modalTripId">Viaje</h2>
+                <div id="modalTripBody"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- ahora mapa.js carga Google Maps dinámicamente; pon tu API KEY en mapa.js -->
+    <script type="module" src="/public/js/mapa.js"></script>
+    <script type="module">
+        import { loadSidebar } from "/public/js/sidebar.js";
+        loadSidebar("map");
+    </script>
+</body>
+
+</html>

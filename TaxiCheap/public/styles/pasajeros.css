@@ -1,0 +1,641 @@
+/* Modern modal and gallery styles */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0; /* shorthand for top/right/bottom/left */
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(10, 20, 30, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: linear-gradient(180deg, #ffffff, #fbfbfd);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  padding: 28px;
+  box-shadow: 0 18px 40px rgba(16, 24, 40, 0.35);
+  transition: transform 0.28s cubic-bezier(.2,.9,.3,1), opacity 0.2s;
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b6f76;
+}
+
+.modal-close:hover { color: #222; }
+
+.modal-body { padding: 6px 0 0 0; }
+
+.modal-section { margin-bottom: 22px; }
+
+.modal-section h2 {
+  font-size: 18px;
+  color: #222;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+}
+
+.driver-info {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.driver-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.driver-details {
+  flex: 1;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #777;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.verified-badge {
+  background-color: #e0f7fa;
+  color: #00897b;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.verified-badge.unverified {
+  background-color: #ffecb3;
+  color: #ff9800;
+}
+
+.background-check img,
+.licencia-img img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+}
+
+.licencia-container {
+  margin-top: 25px;
+}
+
+.licencia-container h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.licencia-img {
+  margin-top: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.modal-actions button {
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  min-width: 120px;
+}
+
+.btn-verify {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-verify:hover {
+  background-color: #388e3c;
+}
+
+.btn-edit {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #1976d2;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #e53935;
+}
+
+/* Documents gallery inside modal */
+.documents-gallery {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.doc-thumb-wrap {
+  width: 120px;
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+}
+
+.doc-thumb-wrap .doc-label {
+  margin-top: 8px;
+  color: #666;
+}
+
+.doc-thumb {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(7,10,20,0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid rgba(15,20,30,0.06);
+}
+
+.doc-thumb:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 14px 30px rgba(7,10,20,0.14); }
+
+/* Larger viewer overlay for document preview */
+.image-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.image-viewer.show { display: flex; }
+
+.image-viewer img {
+  max-width: 95%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+  transition: transform 0.2s ease;
+}
+
+.image-viewer .close-image {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.image-viewer .close-image:hover { background: rgba(255,255,255,0.12); }
+
+/* Estilo para las tarjetas de conductores */
+.driver-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    width: 250px;
+    background-color: #f9f9f9;
+}
+
+.driver-card-photo {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.driver-card-photo img {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.driver-card-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.driver-card-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.view-details-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Estilos para las imágenes de documentos */
+.background-check img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.licencia-container {
+    margin-top: 20px;
+}
+
+.licencia-img {
+    margin-bottom: 10px;
+}
+
+.licencia-img img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 5px;
+}
+
+
+/* Drivers Section */
+.drivers-section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.drivers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.drivers-header h2 {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+}
+
+.search-drivers {
+  background-color: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 250px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.search-drivers:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #fff;
+}
+
+/* Drivers Grid */
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.driver-card{/* minimal duplication kept for compatibility */}
+
+.driver-card:hover {/* keep hover behavior */}
+
+.driver-card-header {/* compatibility placeholder */}
+
+.driver-card-header img {/* compatibility placeholder */}
+
+.driver-card-verified {/* compatibility placeholder */}
+
+.driver-card-verified.unverified {/* compatibility placeholder */}
+
+.driver-card-body {/* compatibility placeholder */}
+
+.driver-card-name {/* compatibility placeholder */}
+
+.driver-card-info {/* compatibility placeholder */}
+
+.driver-card-info strong {/* compatibility placeholder */}
+
+/* Modal */
+.modal{/* kept above */}
+
+.modal.active{/* kept for compatibility */}
+
+.modal-overlay{/* kept for compatibility */}
+
+.modal-overlay.active{/* kept for compatibility */}
+
+.modal-content{/* kept above */}
+
+@keyframes slideUp {/* kept for compatibility */}
+
+.modal-close {/* kept above */}
+
+.modal-close:hover {/* kept above */}
+
+.modal-body {/* kept above */}
+
+.modal-section {/* kept above */}
+
+.modal-section:last-child {/* kept for compatibility */}
+
+.modal-section h2 {/* kept above */}
+
+/* Driver Info - polished layout */
+.driver-info{/* kept above */}
+
+/* Avatar column */
+.driver-photo{/* kept above */}
+
+.driver-photo img{/* kept above */}
+
+/* Info column becomes a compact grid for clarity */
+.driver-details{/* kept above */}
+
+/* Name row spans both columns */
+#modalDriverName{/* compatibility placeholder */}
+
+/* Tidy detail items into pill cards */
+.detail-item{/* kept above */}
+
+.detail-item:last-child { border-bottom: none; }
+
+.detail-label{/* kept above */}
+
+.detail-value{/* kept above */}
+
+/* Verified badge refined */
+#modalDriverVerified{/* compatibility placeholder */}
+
+#driverModal .verified-badge.verified { background: #eaf6ef; color: #1b8a44; border: 1px solid rgba(27,138,68,0.08); }
+#driverModal .verified-badge.pending { background: #fff7ec; color: #c26b00; border: 1px solid rgba(194,107,0,0.06); }
+
+/* Make sure important fields span full width when necessary */
+.driver-details .detail-item.full { grid-column: 1 / -1; }
+
+/* Responsive: single column for small screens */
+@media (max-width: 640px) {/* responsive rules kept for compatibility */}
+
+/* Vehicle Info */
+.vehicle-info{/* kept for compatibility */}
+
+.vehicle-photo{/* kept for compatibility */}
+
+.vehicle-photo img{/* kept for compatibility */}
+
+.vehicle-details{/* kept for compatibility */}
+
+/* Background Check */
+.background-check{/* kept for compatibility */}
+
+.background-check img{/* kept for compatibility */}
+
+/* Added button styles for CRUD operations */
+.btn-create-driver{/* kept for compatibility */}
+
+.btn-create-driver:hover{/* kept for compatibility */}
+
+/* Modal Action Buttons */
+.modal-actions{/* kept above */}
+
+.btn-verify,
+.btn-edit,
+.btn-delete {/* kept above */}
+
+.btn-verify {/* kept above */}
+
+.btn-verify:hover:not(.verified) {/* kept above */}
+
+.btn-verify.verified {/* kept for compatibility */}
+
+.btn-edit {/* kept above */}
+
+.filters-container {/* kept for compatibility */}
+
+.filter-select {/* kept for compatibility */}
+
+.edit-input {/* kept for compatibility */}
+.btn-save { background-color: #28a745 !important; color: white; }
+.btn-cancel { background-color: #6c757d !important; color: white; }
+
+.btn-edit:hover {/* kept above */}
+
+.btn-delete {/* kept above */}
+
+.btn-delete:hover {/* kept above */}
+
+/* Form Modal */
+.form-modal-content{/* kept for compatibility */}
+
+.driver-form{/* kept for compatibility */}
+
+.form-section{/* kept for compatibility */}
+
+.form-section:last-of-type{/* kept for compatibility */}
+
+.form-section h3{/* kept for compatibility */}
+
+.form-group{/* kept for compatibility */}
+
+.form-group label{/* kept for compatibility */}
+
+.form-group input{/* kept for compatibility */}
+
+.form-group input:focus{/* kept for compatibility */}
+
+.form-buttons{/* kept for compatibility */}
+
+.btn-submit,
+.btn-cancel{/* kept for compatibility */}
+
+.btn-submit{/* kept for compatibility */}
+
+.btn-submit:hover{/* kept for compatibility */}
+
+.btn-cancel{/* kept for compatibility */}
+
+.btn-cancel:hover{/* kept for compatibility */}
+
+/* Tabla de pasajeros (igual que conductores) */
+.drivers-table-wrap {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  overflow: auto;
+}
+
+.drivers-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  font-family: inherit;
+}
+
+.drivers-table thead th {
+  text-align: left;
+  font-size: 13px;
+  color: #374151;
+  padding: 16px 12px;
+  border-bottom: 1px solid #eef2f6;
+  font-weight: 700;
+}
+
+.drivers-table tbody tr {
+  border-bottom: 1px solid #f3f5f7;
+  transition: background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.drivers-table tbody tr:hover {
+  background: #fbfdff;
+}
+
+.drivers-table td {
+  padding: 14px 12px;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #2b3440;
+}
+
+/* Pasajero/Conductor cell: avatar + name + dni */
+.conductor-cell,
+.passenger-cell {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.conductor-avatar,
+.passenger-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(12,20,28,0.06);
+  flex-shrink: 0;
+}
+
+.conductor-meta,
+.passenger-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.conductor-name,
+.passenger-name {
+  font-weight: 700;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conductor-sub,
+.passenger-sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Truncamiento para textos largos (ej. si no es URL) */
+.passenger-sub {
+  max-width: 220px;
+  font-size: 13px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Miniatura pequeña para documentos en la tabla */
+.small-doc-thumb {
+  width: 72px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(15,20,30,0.06);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(7,10,20,0.08);
+}
+
+/* Asegurar que miniatura respeta layout en móviles */
+@media (max-width: 720px) {
+  .passenger-sub { max-width: 140px; }
+  .small-doc-thumb { width: 60px; height: 40px; }
+}
+
+/* Responsive: collapse table into stacked cards on tiny screens */
+@media (max-width: 720px) {
+  .drivers-table { min-width: 0; display: block; }
+  .drivers-table thead { display: none; }
+  .drivers-table tbody tr { display: block; margin-bottom: 12px; border-radius: 10px; padding: 12px; box-shadow: 0 6px 18px rgba(12,20,28,0.03); }
+  .drivers-table td { display: flex; justify-content: space-between; padding: 8px 6px; }
+  .actions-cell { text-align: left; margin-top: 8px; }
+}

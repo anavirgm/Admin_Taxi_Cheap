@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TAXI CHEAP - Económico y Seguro</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F97316", // Orange for interactive elements (TAXI vibes)
+                        secondary: "#5865F2", // Discord-ish blue for secondary buttons
+                        "background-light": "#f0f2f5", // Light mode background
+                        "background-dark": "#404EED", // The distinct Discord deep blue/purple
+                        "background-darker": "#23272A", // Darker footer/sections
+                        "text-primary": "#FFFFFF",
+                    },
+                    fontFamily: {
+                        display: ["'Archivo Black'", "sans-serif"],
+                        body: ["'Poppins'", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1494783367193-149034c05e8f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3')", // Abstract city lights or texture
+                    }
+                },
+            },
+        };
+    </script>
+<style>.bg-hero-custom {
+            background-color: #1078FF;
+            background-image: radial-gradient(circle at 50% 10%, #3a8fff 0%, #1078FF 60%, #2c2f3381 100%);
+        }html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-body bg-background-light dark:bg-background-dark text-gray-900 dark:text-white transition-colors duration-300">
+<nav class="w-full px-6 py-4 flex justify-between items-center max-w-7xl mx-auto relative z-20">
+<a class="flex items-center gap-2 group" href="#">
+<span class="material-icons-outlined text-4xl text-primary transform group-hover:-rotate-12 transition-transform">local_taxi</span>
+<span class="font-display text-2xl tracking-tighter uppercase dark:text-white text-gray-900">TAXI CHEAP</span>
+</a>
+<div class="hidden md:flex items-center space-x-8 font-semibold text-sm">
+<a class="hover:underline hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="hover:underline hover:text-primary transition-colors" href="#">Servicios</a>
+<a class="hover:underline hover:text-primary transition-colors" href="#">Precios</a>
+<a class="hover:underline hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+<div class="hidden md:block">
+<a class="bg-white text-gray-900 hover:text-primary hover:shadow-lg transition-all px-4 py-2 rounded-full font-medium text-sm" href="./apk/taxicheap.apk" download="taxicheap.apk">
+                Descargar .APK
+            </a>
+</div>
+<button class="md:hidden text-3xl">
+<span class="material-icons-outlined">menu</span>
+</button>
+</nav>
+<header class="relative overflow-hidden min-h-[90vh] flex items-center justify-center text-center px-4 pb-20 pt-10">
+<div class="absolute inset-0 z-0 bg-hero-custom opacity-90 dark:opacity-100"></div>
+<div class="absolute bottom-0 w-full h-1/2 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 z-0"></div>
+<div class="absolute top-20 left-10 w-16 h-16 bg-primary opacity-20 rounded-full blur-xl animate-pulse"></div>
+<div class="absolute bottom-40 right-10 w-32 h-32 bg-purple-500 opacity-20 rounded-full blur-2xl animate-pulse"></div>
+<div class="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between w-full">
+<div class="md:w-1/2 text-left mb-12 md:mb-0 md:pr-10">
+<h1 class="font-display text-5xl md:text-7xl uppercase leading-none mb-6 text-white drop-shadow-lg">
+                    VIAJA <br/>
+<span class="text-primary">ECONÓMICO</span><br/>
+                    Y SEGURO
+                </h1>
+<p class="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-lg">
+                    Taxi Cheap es genial para moverte por la ciudad sin gastar de más. Ya sea para ir al trabajo, salir con amigos o llegar al aeropuerto, personaliza tu viaje y muévete con tranquilidad.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+
+<a href="./apk/taxicheap.apk" download="taxicheap.apk">
+    <button class="bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 px-8 py-4 rounded-full font-semibold text-lg transition-transform hover:scale-105 flex items-center justify-center gap-2 shadow-xl">
+        <span class="material-icons-outlined">download</span>
+        Descargar .APK
+    </button>
+</a>
+
+</div>
+</div>
+<div class="md:w-1/2 relative flex justify-center">
+<div class="relative w-72 h-[500px] bg-gray-900 rounded-[3rem] border-8 border-gray-800 shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-500">
+<div class="absolute top-0 w-full h-full bg-gray-800 flex flex-col">
+<div class="h-2/3 bg-gray-700 relative">
+<img alt="Map View" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv2oLtbBgkHy0m6MEx8ymfPzVx_zXYsHdCl35CYfFbLDT_bqEQuEEyvS7fINkMYZJfgp9uXOo7DXFfCn2qHYuwiEUH73IHhdVaeFFmIFf9O2XHCUWz5Y3ELF_4sHDTMYkPn7Kbn7wvngPUQ3s9_IjN2TO2rFJWgQ1VXSddta5EjIhm643wsZS-yIqI698HZ-n4v-kHeL7oejxkgf0pDuHQTItBhZEVXmY7lFqJHTkj2ZvKoEhH9A7zqay1waU8peghwhzK5yCxbo8"/>
+<div class="absolute top-1/4 left-1/3 p-2 bg-primary rounded-full shadow-lg animate-bounce">
+<span class="material-icons-outlined text-white text-sm">directions_car</span>
+</div>
+<div class="absolute bottom-1/3 right-1/4 p-2 bg-white rounded-full shadow-lg">
+<span class="material-icons-outlined text-gray-900 text-sm">directions_car</span>
+</div>
+</div>
+<div class="h-1/3 bg-gray-900 p-4 rounded-t-3xl -mt-4 relative z-10">
+<div class="w-12 h-1 bg-gray-600 rounded-full mx-auto mb-4"></div>
+<h3 class="text-white font-bold text-lg">Tu conductor está cerca</h3>
+<div class="flex items-center mt-3 gap-3">
+<div class="w-10 h-10 bg-gray-600 rounded-full"></div>
+<div>
+<p class="text-white text-sm font-semibold">Juan Pérez</p>
+<p class="text-primary text-xs">Toyota Prius • 4.9 ★</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -z-10 bottom-0 left-0 transform -translate-x-12 translate-y-4">
+<span class="material-icons-outlined text-9xl text-white opacity-10 rotate-12">map</span>
+</div>
+<div class="absolute -z-10 top-10 right-0 transform translate-x-8">
+<span class="material-icons-outlined text-8xl text-primary opacity-20 -rotate-12">schedule</span>
+</div>
+</div>
+</div>
+</header>
+<section class="py-20 bg-background-light dark:bg-[#23272A]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow group">
+<div class="w-14 h-14 bg-green-100 dark:bg-green-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons-outlined text-green-600 dark:text-green-400 text-3xl">savings</span>
+</div>
+<h3 class="font-display text-2xl mb-4 text-gray-900 dark:text-white">Precios Justos</h3>
+<p class="text-gray-600 dark:text-gray-300">
+                        Sin tarifas sorpresa. Conoce el precio estimado antes de subirte. Viajar barato no significa sacrificar calidad.
+                    </p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow group">
+<div class="w-14 h-14 bg-blue-100 dark:bg-blue-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons-outlined text-blue-600 dark:text-blue-400 text-3xl">verified_user</span>
+</div>
+<h3 class="font-display text-2xl mb-4 text-gray-900 dark:text-white">Viaje Seguro</h3>
+<p class="text-gray-600 dark:text-gray-300">
+                        Conductores verificados y monitoreo GPS en tiempo real.
+                    </p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow group">
+<div class="w-14 h-14 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons-outlined text-primary text-3xl">speed</span>
+</div>
+<h3 class="font-display text-2xl mb-4 text-gray-900 dark:text-white">Siempre a Tiempo</h3>
+<p class="text-gray-600 dark:text-gray-300">
+                        Nuestra tecnología optimiza rutas para que llegues a tu destino lo más rápido posible.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-100 dark:bg-background-dark relative overflow-hidden">
+<div class="max-w-6xl mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row items-center bg-gray-900 rounded-[2rem] p-10 md:p-16 shadow-2xl">
+<div class="md:w-2/3 mb-8 md:mb-0">
+<h2 class="font-display text-3xl md:text-5xl text-white mb-6 uppercase">
+                        ¿Listo para empezar?
+                    </h2>
+<p class="text-gray-300 text-lg mb-8 max-w-lg">
+                        Únete a miles de usuarios que ya viajan de forma inteligente. Descarga la app hoy mismo.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-orange-600 text-white px-6 py-3 rounded-full font-bold transition-colors flex items-center gap-2">
+<span class="material-icons-outlined">store</span>
+    <div class="flex flex-col items-start leading-none">
+        <span class="text-xs font-normal">Pronto en</span>
+        <span>Play Store</span>
+    </div>
+                        </button>
+<button class="bg-secondary hover:bg-blue-600 text-white px-6 py-3 rounded-full font-bold transition-colors flex items-center gap-2">
+    <span class="material-icons-outlined">apple</span>
+    <div class="flex flex-col items-start leading-none">
+        <span class="text-xs font-normal">Pronto en</span>
+        <span>App Store</span>
+    </div>
+</button>
+</div>
+</div>
+<div class="md:w-1/3 flex justify-center">
+<span class="material-icons-outlined text-white opacity-20 text-[12rem] animate-pulse">qr_code_2</span>
+</div>
+</div>
+</div>
+<div class="absolute top-10 left-10 text-primary opacity-50 text-2xl">✦</div>
+<div class="absolute bottom-10 right-20 text-white opacity-30 text-4xl">✦</div>
+</section>
+<footer class="bg-gray-900 dark:bg-[#23272A] text-white py-16">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<div class="col-span-2 md:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-icons-outlined text-primary text-3xl">local_taxi</span>
+<span class="font-display text-2xl tracking-tighter uppercase text-primary">TAXI CHEAP</span>
+</div>
+<div class="flex gap-4">
+<a class="text-white hover:text-primary" href="#"><span class="material-icons-outlined">facebook</span></a>
+<a class="text-white hover:text-primary" href="#"><span class="material-icons-outlined">campaign</span></a> 
+<a class="text-white hover:text-primary" href="#"><span class="material-icons-outlined">photo_camera</span></a> 
+</div>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-4 text-sm">Producto</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:underline" href="#">Descargar</a></li>
+<li><a class="hover:underline" href="#">Conductores</a></li>
+<li><a class="hover:underline" href="#">Empresas</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-4 text-sm">Compañía</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:underline" href="#">Sobre Nosotros</a></li>
+<li><a class="hover:underline" href="#">Empleo</a></li>
+<li><a class="hover:underline" href="#">Marca</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary font-bold mb-4 text-sm">Recursos</h4>
+<ul class="space-y-2 text-sm text-gray-400">
+<li><a class="hover:underline" href="#">Soporte</a></li>
+<li><a class="hover:underline" href="#">Seguridad</a></li>
+<li><a class="hover:underline" href="#">Blog</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<button class="bg-primary text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-opacity-90">
+                        Regístrate
+                    </button>
+</div>
+<p class="text-xs text-gray-500">© 2026s Taxi Cheap Inc. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+
+</body></html>

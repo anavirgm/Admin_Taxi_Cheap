@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasajeros - Taxi Cheap</title>
+    <link rel="stylesheet" href="/public/styles/dashboard.css">
+    <link rel="stylesheet" href="/public/styles/pasajeros.css">
+    <link rel="stylesheet" href="/public/styles/conductores.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="sidebar-toggle-desktop" id="sidebarToggleDesktop">☰</button>
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>Taxi Cheap</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-bar" placeholder="Buscar pasajero...">
+        </div>
+    </div>
+
+    <!-- Overlay del sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+         <div id="sidebarContainer"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Gestión de Pasajeros</h1>
+            </div>
+
+            <!-- Passengers Section -->
+            <div class="passengers-section">
+                <div class="drivers-header">
+                    <h2>Lista de Pasajeros</h2>
+                    <div class="filters-container">
+                        <input type="text" class="search-drivers" id="searchPassengers"
+                            placeholder="Buscar por Nombre, DNI o Email...">
+
+                        <select id="filterStatus" class="filter-select">
+                            <option value="todos">Todos los estados</option>
+                            <option value="verificados">Solo Verificados</option>
+                            <option value="pendientes">Pendientes por Verificar</option>
+                        </select>
+
+                        <select id="sortOrder" class="filter-select">
+                            <option value="reciente">Más recientes primero</option>
+                            <option value="antiguo">Más antiguos primero</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="cards-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Total Pasajeros</div>
+                                    <div class="card-pasajero" id="cardTotal">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Calificación Promedio</div>
+                                    <div class="card-cupones" id="cardAvgRating">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <div class="card-title">Total Verificados</div>
+                                    <div class="card-verificados" id="cardVerified">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="drivers-table-wrap">
+                    <table class="drivers-table" id="passengersTable" aria-describedby="passengers-list">
+                        <thead>
+                            <tr>
+                                <th>Pasajero</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Calificación</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Filas inyectadas dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ver detalles -->
+    <div class="modal" id="passengerModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">✕</button>
+
+            <div class="modal-body">
+                <!-- Passenger Info Section -->
+                <div class="modal-section">
+                    <h2>Información del Pasajero</h2>
+                    <div class="driver-info">
+                        <div class="driver-photo">
+                            <img id="modalPassengerPhoto" src="/placeholder.svg" alt="Foto del pasajero">
+                        </div>
+                        <div class="driver-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Nombre:</span>
+                                <span class="detail-value" id="modalPassengerName"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">DNI:</span>
+                                <span class="detail-value" id="modalPassengerDNI"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Correo:</span>
+                                <span class="detail-value" id="modalPassengerEmail"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Teléfono:</span>
+                                <span class="detail-value" id="modalPassengerPhone"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Nacionalidad:</span>
+                                <span class="detail-value" id="modalPassengerNacionalidad"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Distrito de Residencia:</span>
+                                <span class="detail-value" id="modalPassengerDistrito"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Fecha de nacimiento:</span>
+                                <span class="detail-value" id="modalPassengerFecha"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Fecha de registro:</span>
+                                <span class="detail-value" id="modalPassengerRegistro"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Calificación:</span>
+                                <span class="detail-value" id="modalPassengerCalificacion"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Verificado:</span>
+                                <span class="detail-value verified-badge" id="modalPassengerVerified"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Section (only DNI for passengers) -->
+                <div class="modal-section">
+                    <h2>Documentos</h2>
+                    <div class="documents-gallery" id="documentsGallery">
+                        <div class="doc-thumb-wrap">
+                            <img id="modalDNI" class="doc-thumb" src="/placeholder.svg" alt="DNI" />
+                            <div class="doc-label">DNI</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="modal-actions">
+                    <button class="btn-verify" id="btnVerifyPassenger">✓ Verificar Pasajero</button>
+                    <button class="btn-edit" id="btnEditPassenger">✏️ Editar</button>
+                    <button class="btn-delete" id="btnDeletePassenger">🗑️ Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Image viewer overlay -->
+    <div id="imageViewer" class="image-viewer" aria-hidden="true">
+        <button class="close-image" id="closeImageViewer">✕</button>
+        <img id="imageViewerImg" src="" alt="Vista previa" />
+    </div>
+
+    <script type="module" src="/public/js/pasajeros.js"></script>
+    <script type="module">
+  import { loadSidebar } from "/public/js/sidebar.js";
+  loadSidebar("passengers");
+</script>
+</body>
+
+</html>

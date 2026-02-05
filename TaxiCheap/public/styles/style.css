@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.card {
+    background: #f5f3f0;
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #001f3f;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+
+.form-group .NombreEmail{
+    display: block;
+    font-size: 14px;
+    color: #000;
+    margin-left: 25px;
+    position: relative;
+    z-index: 3;
+    background: #f5f3f0;
+    width: fit-content;
+    padding-right: 6px;
+    padding-left: 4px;
+    margin-bottom: 2px;
+}
+
+.form-group .NombreContraseña{
+    display: block;
+    font-size: 14px;
+    color: #000;
+    margin-left: 25px;
+    position: relative;
+    z-index: 3;
+    background: #f5f3f0;
+    width: fit-content;
+    padding-right: 6px;
+    padding-left: 4px;
+    margin-bottom:12px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #add8e6;
+    font-size: 16px;
+    color: #333;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    margin-top: -12px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-group input::placeholder {
+    color: #666;
+}
+
+.form-group input:focus {
+    outline: none;
+    background: #a0d5e8;
+    box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.3);
+}
+
+.password-wrapper {
+    position: relative;
+    margin-top: -12px;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding: 16px 45px 16px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #add8e6;
+    font-size: 16px;
+    color: #333;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.password-wrapper input::placeholder {
+    color: #666;
+}
+
+.password-wrapper input:focus {
+    outline: none;
+    background: #a0d5e8;
+    box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.3);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    transition: all 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: #333;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.error-message {
+    display: none;
+    color: #d32f2f;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.forgot-password a {
+    color: #ff9800;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    margin-left: 50%;
+}
+
+.forgot-password a:hover {
+    color: #fb8c00;
+    text-decoration: underline;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: #001f3f;
+    color: white;
+    border: none;
+    border-radius: px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-login:hover {
+    background: #003d66;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 31, 63, 0.3);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.btn-login:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.create-account {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.create-account a {
+    color: #ff9800;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.create-account a:hover {
+    color: #fb8c00;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 40px 30px;
+    }
+
+    .title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .form-group input {
+        padding: 14px 16px;
+    }
+
+    .password-wrapper input {
+        padding: 14px 40px 14px 16px;
+    }
+
+    .forgot-password a{
+        margin-left: 100px;
+    }
+}

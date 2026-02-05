@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifas - Taxi Cheap</title>
+    <link rel="stylesheet" href="/public/styles/dashboard.css">
+    <link rel="stylesheet" href="/public/styles/tarifas.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <button class="sidebar-toggle-desktop" id="sidebarToggleDesktop">☰</button>
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+                <span>Taxi Cheap</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-bar" placeholder="Type here...">
+            <button>🔐 Sign in</button>
+            <button>⚙️</button>
+            <button>🔔</button>
+        </div>
+    </div>
+
+    <!-- Overlay del sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+         <nav class="sidebar" id="sidebar">
+            <button class="close-sidebar" id="closeSidebar">✕</button>
+            <div class="sidebar-header"></div>
+
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" data-menu="dashboard">
+                    <span class="menu-icon">📈</span>
+                    Administradores
+                </a></li>
+                <li><a href="conductores.html" data-menu="conductores">
+                    <span class="menu-icon">👨‍✈️</span>
+                    Conductores
+                </a></li>
+                <li><a href="pasajeros.html" data-menu="passengers">
+                    <span class="menu-icon">👥</span>
+                    Pasajeros
+                </a></li>
+                <li><a href="cupones.html" data-menu="coupons">
+                    <span class="menu-icon">🎟️</span>
+                    Cupones
+                </a></li>
+                <li><a href="#" data-menu="map">
+                    <span class="menu-icon">🗺️</span>
+                    Mapa
+                </a></li>
+            </ul>
+
+            <div class="sidebar-section-title">Configuración</div>
+            <ul class="sidebar-menu">
+                <li><a href="tarifas.html" data-menu="rates">
+                    <span class="menu-icon">💰</span>
+                    Tarifas
+                </a></li>
+                <li><a href="terminos.html" data-menu="terms">
+                    <span class="menu-icon">📋</span>
+                    Términos y Condiciones
+                </a></li>
+                <li><a href="politicas.html" data-menu="policies">
+                    <span class="menu-icon">⚖️</span>
+                    Políticas
+                </a></li>
+                <li><a href="ayuda.html" class="active" data-menu="help">
+                    <span class="menu-icon">❓</span>
+                    Ayuda y Soporte
+                </a></li>
+                <li><a href="faq.html" data-menu="faq">
+                    <span class="menu-icon">💬</span>
+                    Preguntas Frecuentes
+                </a></li>
+                <li><a href="#" data-menu="account">
+                    <span class="menu-icon">👤</span>
+                    Cuenta
+                </a></li>
+                <li><a href="#" data-menu="logout">
+                    <span class="menu-icon">🚪</span>
+                    Cerrar sesión
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Tarifas</h1>
+            </div>
+
+            <!-- Rates Section -->
+            <div class="rates-section">
+                <div class="rates-card">
+                    <h2>Tarifa Actual</h2>
+                    <div class="rates-display" id="ratesDisplay">
+                        <div class="rate-item">
+                            <span class="rate-label">Tarifa Base:</span>
+                            <span class="rate-value" id="baseRate">$0.00</span>
+                        </div>
+                        <div class="rate-item">
+                            <span class="rate-label">Por Kilómetro:</span>
+                            <span class="rate-value" id="perKmRate">$0.00</span>
+                        </div>
+                        <div class="rate-item">
+                            <span class="rate-label">Por Minuto (Espera):</span>
+                            <span class="rate-value" id="perMinuteRate">$0.00</span>
+                        </div>
+                        <div class="rate-item">
+                            <span class="rate-label">Tarifa Nocturna (Incremento %):</span>
+                            <span class="rate-value" id="nightSurge">0%</span>
+                        </div>
+                        <div class="rate-item">
+                            <span class="rate-label">Tarifa Pico (Incremento %):</span>
+                            <span class="rate-value" id="peakSurge">0%</span>
+                        </div>
+                    </div>
+                    <button class="btn-edit-rates" id="btnEditRates">✏️ Editar Tarifa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar tarifas -->
+    <div class="modal" id="editRatesModal">
+        <div class="modal-content form-modal-content">
+            <button class="modal-close" id="closeEditModal">✕</button>
+            
+            <div class="modal-body">
+                <h2>Editar Tarifas</h2>
+                
+                <form id="ratesForm" class="rates-form">
+                    <div class="form-group">
+                        <label for="inputBaseRate">Tarifa Base ($):</label>
+                        <input type="number" id="inputBaseRate" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPerKmRate">Por Kilómetro ($):</label>
+                        <input type="number" id="inputPerKmRate" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPerMinuteRate">Por Minuto - Espera ($):</label>
+                        <input type="number" id="inputPerMinuteRate" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNightSurge">Tarifa Nocturna (%):</label>
+                        <input type="number" id="inputNightSurge" min="0" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPeakSurge">Tarifa Pico (%):</label>
+                        <input type="number" id="inputPeakSurge" min="0" max="100" required>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-submit">Guardar Cambios</button>
+                        <button type="button" class="btn-cancel" id="btnCancelEdit">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="editModalOverlay"></div>
+
+    <script src="/public/js/dashboard.js"></script>
+    <script type="module" src="/public/js/tarifas.js"></script>
+</body>
+</html>
